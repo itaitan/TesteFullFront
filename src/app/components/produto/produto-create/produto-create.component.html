@@ -3,8 +3,6 @@
     .
     <h1 class="fullWidth">Cadastrar Produto</h1>
 
-
-
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
       <input
@@ -20,21 +18,21 @@
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>Data de nascimento</mat-label>
+      <mat-label>Preço</mat-label>
       <input
         name="preco"
         [(ngModel)]="produto.preco"
         [formControl]="preco"
         required
         matInput
-        placeholder="Ex... R$500,50"
-        mask="R$0000,00"
+        placeholder="Ex... R$00,00"
+
       />
       <mat-icon matSuffix>date_range</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>Nome</mat-label>
+      <mat-label>Quantidade</mat-label>
       <input
         name="quantidade"
         required
@@ -47,7 +45,7 @@
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>Nome</mat-label>
+      <mat-label>Descrição</mat-label>
       <input
         name="descricao"
         required
