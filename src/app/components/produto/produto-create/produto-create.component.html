@@ -1,1 +1,81 @@
-<p>produto-create works!</p>
+<div class="container mat-elevation-z8">
+  <form action="" class="form">
+    .
+    <h1 class="fullWidth">Cadastrar Produto</h1>
+
+
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Nome</mat-label>
+      <input
+        name="nome"
+        required
+        [(ngModel)]="produto.nome"
+        [formControl]="nome"
+        matInput
+        placeholder="Ex... Escova de dente"
+        maxlength="40"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Data de nascimento</mat-label>
+      <input
+        name="preco"
+        [(ngModel)]="produto.preco"
+        [formControl]="preco"
+        required
+        matInput
+        placeholder="Ex... R$500,50"
+        mask="R$0000,00"
+      />
+      <mat-icon matSuffix>date_range</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Nome</mat-label>
+      <input
+        name="quantidade"
+        required
+        [(ngModel)]="produto.quantidade"
+        [formControl]="quantidade"
+        matInput
+        placeholder="Ex... 5"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth" appearance="legacy">
+      <mat-label>Nome</mat-label>
+      <input
+        name="descricao"
+        required
+        [(ngModel)]="produto.descricao"
+        [formControl]="descricao"
+        matInput
+        placeholder="Ex... Escova de dentes colgate duplo white ..."
+        maxlength="100"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <button
+      [disabled]="!validaCampos()"
+      (click)="create()"
+      class="fullWidth mat-elevation-z8"
+      mat-flat-button
+      color="primary"
+    >
+      Cadastrar
+    </button>
+    <button
+      routerLink="../"
+      class="fullWidth mat-elevation-z8"
+      mat-stroked-button
+      color="warn"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>
