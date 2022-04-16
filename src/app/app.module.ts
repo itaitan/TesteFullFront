@@ -27,13 +27,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ProdutoCreateComponent } from './components/produto/produto-create/produto-create.component';
 import { ProdutoUpdateComponent } from './components/produto/produto-update/produto-update.component';
 import { ProdutoDeleteComponent } from './components/produto/produto-delete/produto-delete.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { ProdutoDeleteComponent } from './components/produto/produto-delete/prod
     ProdutoListComponent,
     ProdutoCreateComponent,
     ProdutoUpdateComponent,
-    ProdutoDeleteComponent
+    ProdutoDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,10 +76,15 @@ import { ProdutoDeleteComponent } from './components/produto/produto-delete/prod
     MatListModule,
     MatCardModule,
     MatTooltipModule,
-
-
+    NgxMaskModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
