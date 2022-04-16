@@ -1,1 +1,73 @@
-<p>produto-list works!</p>
+<div class="container">
+  <h1>Listando Clientes</h1>
+
+  <button
+    routerLink="create"
+    id="createCliente"
+    class="mat-elevation-z8"
+    mat-stroked-button
+    color="primary"
+  >
+    Novo cliente
+  </button>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataNascimento">
+        <th mat-header-cell *matHeaderCellDef>Preço</th>
+        <td mat-cell *matCellDef="let element">{{ element.preco }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sexo">
+        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantidade }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+        <td mat-cell *matCellDef="let element">{{ element.descricao }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="update/{{ element.id }}">
+            <i class="material-icons edit" matTooltip="Editar Cliente">edit</i>
+          </a>
+          <a routerLink="delete/{{ element.id }}">
+            <i class="material-icons delete" matTooltip="Deletar Cliente"
+              >delete</i
+            >
+          </a>
+
+          <a routerLink="enderecos/view/{{ element.id }}">
+            <i
+              class="material-icons visibility"
+              matTooltip="Visualizar Endereço"
+              >visibility</i
+            >
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>
