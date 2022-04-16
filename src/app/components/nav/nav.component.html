@@ -1,0 +1,32 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="home">
+        <i class="material-icons">home</i>
+        Home
+      </a>
+
+      <a mat-list-item routerLink="clientes">
+        <i class="material-icons">shopping_cart</i>
+        Produto
+      </a>
+
+      <a mat-list-item href="https://github.com/itaitan">
+        <i class="material-icons" >code</i>
+        GitHub
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="content">
+    <app-header></app-header>
+    <button
+      class="menu mat-elevation-z8"
+      (click)="drawer.toggle()"
+      mat-icon-button
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
