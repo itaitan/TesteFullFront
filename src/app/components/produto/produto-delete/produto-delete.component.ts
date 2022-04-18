@@ -36,20 +36,9 @@ export class ProdutoDeleteComponent implements OnInit {
   }
 
   delete(): void {
-    this.service.delete(this.produto.id).subscribe(
-      (resposta) => {
-        this.tost.success('Produto deletado com Sucesso.', 'Deletado');
-        this.router.navigate(['produtos']);
-      },
-      (ex) => {
-        if (ex.error.errors) {
-          ex.error.errors.forEach((element) => {
-            this.tost.error(element.message);
-          });
-        } else {
-          this.tost.error(ex.error.message);
-        }
-      }
-    );
+    this.service.delete(this.produto.id).subscribe((resposta) => {
+      this.tost.success(`${resposta.mensagem}`, 'Deletado');
+      this.router.navigate(['produtos']);
+    });
   }
 }

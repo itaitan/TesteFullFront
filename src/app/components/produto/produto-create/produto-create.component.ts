@@ -18,6 +18,8 @@ export class ProdutoCreateComponent implements OnInit {
     descricao: '',
   };
 
+  quantidadeModel = ''
+  precoModel = ''
   nome: FormControl = new FormControl();
   preco: FormControl = new FormControl();
   quantidade: FormControl = new FormControl();
@@ -32,18 +34,17 @@ export class ProdutoCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   create(): void {
+    this.produto.quantidade = Number(this.quantidadeModel)
+    this.produto.preco = Number(this.precoModel)
     this.service.create(this.produto).subscribe(
       (resposta) => {
-        this.tost.success('Produto cadastrado com sucesso.', 'Cadastro');
-        this.router.navigate(['produto']);
+        this.tost.success(`${resposta.mensagem}`, 'Cadastro');
+        this.router.navigate(['produtos']);
       },
       (ex) => {
-        if (ex.error.errors) {
-          ex.error.errors.forEach((element) => {
-            this.tost.error(element.message);
-          });
-        } else {
-          this.tost.error(ex.error.message);
+
+        if (ex.error.mensagem) {
+          this.tost.error(ex.error.mensagem, 'Falha');
         }
       }
     );

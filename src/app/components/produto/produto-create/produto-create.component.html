@@ -21,12 +21,12 @@
       <mat-label>Preço</mat-label>
       <input
         name="preco"
-        [(ngModel)]="produto.preco"
+        [(ngModel)]="precoModel"
         [formControl]="preco"
         required
         matInput
         placeholder="Ex... R$00,00"
-
+        type="number"
       />
       <mat-icon matSuffix>date_range</mat-icon>
     </mat-form-field>
@@ -36,10 +36,11 @@
       <input
         name="quantidade"
         required
-        [(ngModel)]="produto.quantidade"
+        [(ngModel)]="quantidadeModel"
         [formControl]="quantidade"
         matInput
         placeholder="Ex... 5"
+        type="number"
       />
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>

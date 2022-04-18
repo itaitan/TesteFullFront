@@ -44,16 +44,12 @@ export class ProdutoUpdateComponent implements OnInit {
   update(): void {
     this.service.update(this.produto).subscribe(
       (resposta) => {
-        this.tost.success('Produto Atualizado com Sucesso.', 'Atualizar');
+        this.tost.success(`${resposta.mensagem}`, 'Atualizar');
         this.router.navigate(['produtos']);
       },
       (ex) => {
-        if (ex.error.errors) {
-          ex.error.errors.forEach((element) => {
-            this.tost.error(element.message);
-          });
-        } else {
-          this.tost.error(ex.error.message);
+        if (ex.error.mensagem) {
+            this.tost.error(ex.error.mensagem, 'Falha');
         }
       }
     );

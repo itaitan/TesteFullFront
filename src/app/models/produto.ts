@@ -3,5 +3,8 @@ export interface Produto{
   nome: string,
   preco: number,
   quantidade: number,
-  descricao: string
+  descricao: string,
+  createdAt?: any,
+  updatedAt?: any,
+  mensagem?: any,
 }
